@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,13 +15,16 @@ public class Amazon1 {
 	
 	public WebDriver driver;
 	
+	@Test
 	@Given("User launches amazon home page")
-	public void user_launches_amazon_home_page() {
+	public void user_launches_amazon_home_page() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
 	    WebDriverManager.chromedriver().setup();
 	    driver = new ChromeDriver();
 	    driver.manage().window().maximize();
 	    driver.get("https://www.amazon.in/");
+	    Thread.sleep(5000);
+	    System.out.println("First one has started");
 	}
 	@Given("User clicks on mobile")
 	public void user_clicks_on_mobile() {
